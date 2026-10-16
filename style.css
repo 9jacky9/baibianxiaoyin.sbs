@@ -1,0 +1,1236 @@
+/* baibianxiaoyin.sbs - Clockwork Chrono & Celestial Astrolabe Style */
+:root {
+  --bg-astral: #f7f6f2;
+  --bg-deck: #efece4;
+  --bg-card-chrono: #ffffff;
+  --text-dial: #1c2128;
+  --text-sub: #545c68;
+  --bronze-primary: #a8622c;
+  --bronze-hover: #8c4e1f;
+  --brass-gold: #c29547;
+  --brass-light: #f5eedb;
+  --chrono-cyan: #2d6b78;
+  --border-dial: #dcd3c1;
+  --border-bronze: #c4a985;
+  --shadow-dial: 0 4px 16px rgba(28, 33, 40, 0.06);
+  --shadow-elevated: 0 10px 26px rgba(28, 33, 40, 0.09);
+  --radius-box: 10px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+  background-color: var(--bg-astral);
+  color: var(--text-dial);
+  line-height: 1.65;
+  font-size: 15px;
+  overflow-x: hidden;
+}
+
+/* Hyperlinks Base Styling for inline text */
+a {
+  color: var(--bronze-patina);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:visited {
+  color: var(--bronze-patina);
+}
+
+/* Button Font Color Visibility Protection against :visited override */
+a.nav-btn-terminal,
+a.nav-btn-terminal:visited,
+a.btn-chrono-prime,
+a.btn-chrono-prime:visited,
+a.btn-flagship-cell,
+a.btn-flagship-cell:visited {
+  color: #ffffff !important;
+}
+
+a.btn-chrono-gauge,
+a.btn-chrono-gauge:visited {
+  color: var(--text-dial) !important;
+}
+
+a.btn-sub-cell,
+a.btn-sub-cell:visited {
+  color: var(--bronze-primary) !important;
+}
+
+a.nav-btn-terminal:hover,
+a.btn-chrono-prime:hover,
+a.btn-flagship-cell:hover {
+  color: #ffffff !important;
+}
+
+a:hover {
+  color: #78441d;
+  text-decoration: underline;
+}
+
+/* Subtle Chrono Cog Rotating Backdrop */
+.chrono-dust-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.c-gear {
+  position: absolute;
+  border: 1px dashed var(--border-bronze);
+  border-radius: 50%;
+  opacity: 0.25;
+  animation: slowTurn 60s linear infinite;
+}
+
+.cg1 { width: 340px; height: 340px; top: -80px; right: -80px; }
+.cg2 { width: 220px; height: 220px; bottom: 8%; left: -60px; animation-direction: reverse; }
+
+@keyframes slowTurn {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
+
+/* Navigation Header */
+.chrono-nav {
+  position: sticky;
+  top: 0;
+  background: rgba(247, 246, 242, 0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 2px solid var(--border-bronze);
+  z-index: 1000;
+  padding: 12px 24px;
+}
+
+.nav-layout {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.chrono-nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.chrono-nav-item {
+  color: var(--text-dial);
+  text-decoration: none;
+  font-size: 14.5px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: var(--radius-box);
+  transition: all 0.2s ease;
+}
+
+.chrono-nav-item:hover {
+  color: var(--bronze-primary);
+  background: var(--brass-light);
+}
+
+.chrono-logo-anchor {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text-dial);
+  flex-shrink: 0;
+}
+
+.chrono-logo-icon {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+}
+
+.brand-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-main-text {
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--bronze-primary);
+}
+
+.logo-sub-text {
+  font-size: 10.5px;
+  color: var(--chrono-cyan);
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.nav-btn-terminal {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 18px;
+  background: var(--text-dial);
+  color: #ffffff;
+  border-radius: var(--radius-box);
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid var(--border-bronze);
+  transition: all 0.2s ease;
+}
+
+.nav-btn-terminal:hover {
+  background: var(--bronze-primary);
+  border-color: var(--bronze-primary);
+}
+
+/* Hero Section */
+.astrolabe-hero {
+  position: relative;
+  z-index: 2;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 52px 24px 60px;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 40px;
+}
+
+.hero-chrono-text {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.status-capsule {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  background: var(--brass-light);
+  border: 1px solid var(--border-bronze);
+  color: var(--bronze-primary);
+  padding: 5px 14px;
+  font-size: 12.5px;
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+.status-dot-dial {
+  width: 7px;
+  height: 7px;
+  background: var(--bronze-primary);
+  border-radius: 50%;
+}
+
+.hero-chrono-heading {
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 1.25;
+  color: var(--text-dial);
+}
+
+.hero-chrono-heading span {
+  color: var(--bronze-primary);
+  border-bottom: 2px solid var(--brass-gold);
+}
+
+.hero-chrono-paragraph {
+  font-size: 16px;
+  color: var(--text-sub);
+  line-height: 1.7;
+}
+
+.chrono-action-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.btn-chrono-prime {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 28px;
+  background: var(--bronze-primary);
+  color: #ffffff;
+  font-size: 15.5px;
+  font-weight: 700;
+  border-radius: var(--radius-box);
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(168, 98, 44, 0.28);
+  border: 1px solid #7c441a;
+  transition: all 0.2s ease;
+}
+
+.btn-chrono-prime:hover {
+  background: var(--bronze-hover);
+  transform: translateY(-2px);
+}
+
+.btn-chrono-gauge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 24px;
+  background: #ffffff;
+  color: var(--text-dial);
+  border: 1.5px solid var(--border-bronze);
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: var(--radius-box);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-chrono-gauge:hover {
+  background: var(--brass-light);
+  border-color: var(--bronze-primary);
+  color: var(--bronze-primary);
+  transform: translateY(-2px);
+}
+
+.hero-chrono-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chrono-stage-frame {
+  position: relative;
+  max-width: 440px;
+  width: 100%;
+  border-radius: var(--radius-box);
+  padding: 8px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(239,236,228,0.95));
+  border: 2px solid var(--border-bronze);
+  box-shadow: 0 14px 32px rgba(28, 33, 40, 0.12), 0 0 16px rgba(168, 98, 44, 0.2);
+}
+
+.chrono-stage-img {
+  width: 100%;
+  height: auto;
+  border-radius: calc(var(--radius-box) - 3px);
+  display: block;
+  object-fit: cover;
+}
+
+/* Section Common Styling */
+.chrono-section {
+  position: relative;
+  z-index: 2;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 54px 24px;
+}
+
+.section-dial-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 42px;
+}
+
+.dial-tag {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--chrono-cyan);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.dial-title {
+  font-size: 30px;
+  font-weight: 900;
+  color: var(--text-dial);
+  margin-bottom: 10px;
+}
+
+.dial-desc {
+  font-size: 14.5px;
+  color: var(--text-sub);
+}
+
+/* Advantage Matrix (Random 4) */
+.chrono-matrix {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.matrix-card {
+  background: var(--bg-card-chrono);
+  border: 1px solid var(--border-dial);
+  border-radius: var(--radius-box);
+  padding: 24px 20px;
+  box-shadow: var(--shadow-dial);
+  position: relative;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.matrix-card::after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 5px;
+  height: 5px;
+  background: var(--brass-gold);
+  border-radius: 50%;
+}
+
+.matrix-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--bronze-primary);
+  box-shadow: var(--shadow-elevated);
+}
+
+.chrono-icon-badge {
+  width: 48px;
+  height: 48px;
+  background: var(--brass-light);
+  border: 1px solid var(--border-bronze);
+  border-radius: var(--radius-box);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.chrono-icon-badge svg {
+  width: 24px;
+  height: 24px;
+}
+
+.matrix-card h3 {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--text-dial);
+  margin-bottom: 8px;
+}
+
+.matrix-card p {
+  font-size: 13.5px;
+  color: var(--text-sub);
+  line-height: 1.6;
+}
+
+/* Streaming & AI Matrix (Random 4) */
+.streaming-chrono-deck {
+  background: var(--bg-deck);
+  border-radius: var(--radius-box);
+  border: 1px solid var(--border-dial);
+  padding: 46px 28px;
+}
+
+.stream-matrix {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.stream-node-card {
+  background: #ffffff;
+  border: 1px solid var(--border-dial);
+  border-radius: var(--radius-box);
+  padding: 22px 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.stream-node-card:hover {
+  border-color: var(--bronze-primary);
+}
+
+.node-chip {
+  align-self: flex-start;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--chrono-cyan);
+  background: #e2f0f2;
+  padding: 3px 10px;
+  border-radius: 3px;
+  margin-bottom: 12px;
+}
+
+.stream-node-card h3 {
+  font-size: 16.5px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.stream-node-card p {
+  font-size: 13.5px;
+  color: var(--text-sub);
+  line-height: 1.6;
+}
+
+/* Pricing Grid (3 Tiers) */
+.chronometer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+.chrono-plan-cell {
+  background: #ffffff;
+  border: 1px solid var(--border-dial);
+  border-radius: var(--radius-box);
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: var(--shadow-dial);
+}
+
+.chrono-plan-cell.chronos-flagship {
+  border: 2px solid var(--bronze-primary);
+  box-shadow: var(--shadow-elevated);
+  transform: scale(1.02);
+}
+
+.flagship-label {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bronze-primary);
+  color: #ffffff;
+  font-size: 11.5px;
+  font-weight: 800;
+  padding: 3px 14px;
+  border-radius: 3px;
+  letter-spacing: 0.5px;
+}
+
+.plan-title-chrono {
+  font-size: 19px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.plan-price-chrono {
+  font-size: 34px;
+  font-weight: 900;
+  color: var(--bronze-primary);
+  margin-bottom: 4px;
+}
+
+.plan-price-chrono sub {
+  font-size: 13px;
+  color: var(--text-sub);
+  font-weight: 500;
+}
+
+.plan-desc-chrono {
+  font-size: 13px;
+  color: var(--text-sub);
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px dashed var(--border-dial);
+}
+
+.spec-list {
+  list-style: none;
+  margin-bottom: 26px;
+  flex-grow: 1;
+}
+
+.spec-list li {
+  font-size: 13.5px;
+  color: var(--text-dial);
+  margin-bottom: 9px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gear-bullet {
+  width: 5px;
+  height: 5px;
+  background: var(--brass-gold);
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+
+.chrono-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  width: 100%;
+  border-radius: var(--radius-box);
+  font-size: 14.5px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-sub-cell {
+  background: var(--brass-light);
+  color: var(--bronze-primary);
+  border: 1px solid var(--border-bronze);
+}
+
+.btn-sub-cell:hover {
+  background: #ede3cb;
+}
+
+.btn-flagship-cell {
+  background: var(--bronze-primary);
+  color: #ffffff;
+}
+
+.btn-flagship-cell:hover {
+  background: var(--bronze-hover);
+}
+
+/* FAQ (Random 3) */
+.chrono-faq-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.chrono-faq-item {
+  background: #ffffff;
+  border: 1px solid var(--border-dial);
+  border-radius: var(--radius-box);
+  padding: 22px 18px;
+}
+
+.chrono-faq-item h3 {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text-dial);
+  margin-bottom: 8px;
+}
+
+.chrono-faq-item p {
+  font-size: 13.5px;
+  color: var(--text-sub);
+  line-height: 1.6;
+}
+
+/* Testimonials (Random 3) */
+.traveller-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.traveller-card {
+  background: #ffffff;
+  border: 1px solid var(--border-dial);
+  border-radius: var(--radius-box);
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.traveller-quote {
+  font-size: 13.5px;
+  color: var(--text-dial);
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: 14px;
+  flex-grow: 1;
+}
+
+.traveller-foot {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-top: 1px solid #f0ede5;
+  padding-top: 10px;
+}
+
+.traveller-badge {
+  width: 32px;
+  height: 32px;
+  background: var(--brass-light);
+  border: 1px solid var(--border-bronze);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 13px;
+  color: var(--bronze-primary);
+}
+
+.traveller-meta h4 {
+  font-size: 13.5px;
+  font-weight: 800;
+}
+
+.traveller-meta p {
+  font-size: 11.5px;
+  color: var(--text-sub);
+}
+
+/* Footer - Strictly ONLY 4 titles */
+.chrono-dock {
+  background: #171b21;
+  color: #dcd3c1;
+  border-top: 2px solid var(--brass-gold);
+  padding: 40px 24px 34px;
+  margin-top: 50px;
+}
+
+.dock-content {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  text-align: center;
+}
+
+.dock-title-link {
+  color: #c4b69d;
+  text-decoration: none;
+  font-size: 15.5px;
+  font-weight: 700;
+  padding: 7px 16px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.dock-title-link:hover {
+  color: #ffffff;
+  background: rgba(194, 149, 71, 0.25);
+}
+
+/* Subpages General Container */
+.chrono-subpage-wrap {
+  max-width: 860px;
+  margin: 40px auto 60px;
+  padding: 0 24px;
+}
+
+.chrono-doc-panel {
+  background: #ffffff;
+  border: 1px solid var(--border-dial);
+  border-radius: var(--radius-box);
+  padding: 40px 36px;
+  box-shadow: var(--shadow-dial);
+}
+
+.chrono-doc-title {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--bronze-primary);
+  margin-bottom: 10px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--brass-light);
+}
+
+.chrono-doc-meta {
+  font-size: 12.5px;
+  color: var(--text-sub);
+  margin-bottom: 22px;
+}
+
+.chrono-doc-body h2 {
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--text-dial);
+  margin: 26px 0 12px;
+}
+
+.chrono-doc-body p {
+  font-size: 14.5px;
+  color: #3b434e;
+  line-height: 1.8;
+  margin-bottom: 14px;
+}
+
+.chrono-doc-body ul {
+  margin: 10px 0 18px 22px;
+}
+
+.chrono-doc-body li {
+  font-size: 14px;
+  color: #3b434e;
+  margin-bottom: 7px;
+  line-height: 1.6;
+}
+
+.dock-home-wrap {
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px dashed var(--border-dial);
+}
+
+.dock-home-link {
+  color: var(--bronze-primary);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.dock-home-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 992px) {
+  .astrolabe-hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .hero-chrono-text {
+    align-items: center;
+  }
+  .chrono-action-bar {
+    justify-content: center;
+  }
+  .chrono-matrix, .stream-matrix, .chrono-faq-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .chronometer-grid {
+    grid-template-columns: 1fr;
+  }
+  .chrono-plan-cell.chronos-flagship {
+    transform: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-layout {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+  }
+  .chrono-nav-menu {
+    display: flex;
+    justify-content: flex-start;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 6px 0;
+    gap: 8px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .chrono-nav-menu::-webkit-scrollbar {
+    display: none;
+  }
+  .chrono-nav-item {
+    font-size: 13.5px;
+    padding: 6px 10px;
+    flex-shrink: 0;
+  }
+  .nav-btn-terminal {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+  .hero-chrono-heading {
+    font-size: 27px;
+  }
+  .hero-chrono-paragraph {
+    font-size: 14.5px;
+  }
+  .chrono-action-bar {
+    flex-direction: column;
+    width: 100%;
+  }
+  .btn-chrono-prime, .btn-chrono-gauge {
+    width: 100%;
+    min-height: 48px;
+  }
+  .chrono-matrix, .stream-matrix, .chrono-faq-list, .traveller-grid {
+    grid-template-columns: 1fr;
+  }
+  .streaming-chrono-deck {
+    padding: 24px 16px;
+  }
+  .chrono-doc-panel {
+    padding: 24px 18px;
+  }
+  .dock-content {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .dock-title-link {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ===================================================
+   时规动态 Hub & 穿梭工程排版体系 (baibianxiaoyin.sbs)
+   =================================================== */
+.dispatch-container {
+  max-width: 1100px;
+  margin: 40px auto 80px;
+  padding: 0 24px;
+}
+
+.dispatch-header-deck {
+  text-align: center;
+  margin-bottom: 48px;
+  padding: 38px 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-chrono);
+  border-radius: var(--radius-box);
+  box-shadow: var(--shadow-dial);
+}
+
+.dispatch-radar-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 14px;
+  font-size: 12.5px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 700;
+  color: var(--bronze-patina);
+  background: rgba(168, 98, 44, 0.08);
+  border: 1px solid rgba(168, 98, 44, 0.2);
+  border-radius: 4px;
+  margin-bottom: 14px;
+  letter-spacing: 0.5px;
+}
+
+.dispatch-header-deck h1 {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--text-dial);
+  margin-bottom: 12px;
+}
+
+.dispatch-header-deck p {
+  font-size: 15px;
+  color: var(--text-sub);
+  max-width: 660px;
+  margin: 0 auto;
+}
+
+.dispatch-log-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 26px;
+}
+
+.dispatch-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-chrono);
+  border-radius: var(--radius-box);
+  padding: 26px;
+  box-shadow: var(--shadow-dial);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.dispatch-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--bronze-patina);
+  box-shadow: var(--shadow-elevated);
+}
+
+.dispatch-badge-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.dispatch-tech-badge {
+  font-size: 11.5px;
+  font-family: "Consolas", "Courier New", monospace;
+  font-weight: 700;
+  padding: 2px 8px;
+  background: var(--brass-light);
+  color: #6d4a18;
+  border-radius: 3px;
+  border: 1px solid #ebd8b5;
+}
+
+.dispatch-tech-badge.core-badge {
+  background: rgba(168, 98, 44, 0.12);
+  color: var(--bronze-patina);
+  border-color: rgba(168, 98, 44, 0.3);
+}
+
+.dispatch-timestamp {
+  font-size: 12.5px;
+  color: var(--text-sub);
+}
+
+.dispatch-title {
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.dispatch-title a {
+  color: var(--text-dial);
+  text-decoration: none;
+}
+
+.dispatch-title a:visited {
+  color: var(--text-dial);
+}
+
+.dispatch-title a:hover {
+  color: var(--bronze-patina);
+}
+
+.dispatch-abstract {
+  font-size: 14px;
+  color: #434c56;
+  line-height: 1.68;
+  margin-bottom: 18px;
+  flex-grow: 1;
+}
+
+.dispatch-card-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 14px;
+  border-top: 1px dashed var(--border-chrono);
+  margin-top: auto;
+}
+
+.dispatch-length {
+  font-size: 12.5px;
+  color: var(--text-sub);
+}
+
+.dispatch-access-link {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--bronze-patina);
+}
+
+.dispatch-access-link:visited {
+  color: var(--bronze-patina);
+}
+
+/* Article Chrono Inspector Reader */
+.chrono-reader-container {
+  max-width: 860px;
+  margin: 36px auto 72px;
+  padding: 0 20px;
+}
+
+.chrono-reader-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-chrono);
+  border-radius: var(--radius-box);
+  padding: 42px 38px;
+  box-shadow: var(--shadow-elevated);
+}
+
+.chrono-path {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-sub);
+  margin-bottom: 22px;
+}
+
+.chrono-path a {
+  color: var(--text-sub);
+}
+
+.chrono-path a:visited {
+  color: var(--text-sub);
+}
+
+.chrono-path a:hover {
+  color: var(--bronze-patina);
+}
+
+.chrono-article-title {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--text-dial);
+  margin-bottom: 16px;
+}
+
+.chrono-meta-status {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--text-sub);
+  padding-bottom: 22px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--border-chrono);
+  flex-wrap: wrap;
+}
+
+.chrono-meta-status .log-author {
+  font-weight: 700;
+  color: var(--bronze-patina);
+}
+
+.chrono-content-body {
+  font-size: 15.5px;
+  line-height: 1.85;
+  color: #2b333c;
+}
+
+.chrono-content-body h2 {
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--text-dial);
+  margin: 36px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--brass-light);
+}
+
+.chrono-content-body h3 {
+  font-size: 17.5px;
+  font-weight: 700;
+  color: #3e4854;
+  margin: 24px 0 12px;
+}
+
+.chrono-content-body p {
+  margin-bottom: 18px;
+}
+
+.chrono-content-body ul, .chrono-content-body ol {
+  margin: 14px 0 22px 26px;
+}
+
+.chrono-content-body li {
+  margin-bottom: 8px;
+  line-height: 1.7;
+}
+
+.chrono-content-body blockquote {
+  background: var(--bg-astral);
+  border-left: 4px solid var(--bronze-patina);
+  padding: 16px 20px;
+  margin: 24px 0;
+  color: #495462;
+}
+
+.chrono-content-body .telemetry-card {
+  background: #fbf8f4;
+  border: 1px solid #dfc7a8;
+  border-radius: 6px;
+  padding: 18px 22px;
+  margin: 26px 0;
+}
+
+.chrono-content-body .telemetry-card h4 {
+  font-size: 15.5px;
+  font-weight: 700;
+  color: #7a4f21;
+  margin-bottom: 8px;
+}
+
+/* Article Chrono Content Body 显色字体超链接 */
+.chrono-content-body a,
+.chrono-content-body a:visited {
+  color: #d96514 !important;
+  font-weight: 700 !important;
+  text-decoration: underline !important;
+  text-decoration-color: #d96514 !important;
+  text-underline-offset: 4px !important;
+  text-decoration-thickness: 2px !important;
+  padding: 1px 5px !important;
+  border-radius: 4px !important;
+  background: rgba(217, 101, 20, 0.09) !important;
+  transition: all 0.2s ease !important;
+}
+
+.chrono-content-body a:hover {
+  color: #a34608 !important;
+  text-decoration-color: #a34608 !important;
+  background: rgba(217, 101, 20, 0.18) !important;
+}
+
+.chrono-author-badge {
+  margin-top: 42px;
+  padding-top: 24px;
+  border-top: 1px dashed var(--border-chrono);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.chrono-avatar-stamp {
+  width: 46px;
+  height: 46px;
+  border-radius: 6px;
+  background: var(--bronze-patina);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.chrono-meta-text h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-dial);
+  margin-bottom: 3px;
+}
+
+.chrono-meta-text p {
+  font-size: 12.5px;
+  color: var(--text-sub);
+  line-height: 1.5;
+}
+
+.chrono-tail-action {
+  margin-top: 34px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .dispatch-log-grid {
+    grid-template-columns: 1fr;
+  }
+  .chrono-reader-card {
+    padding: 26px 18px;
+  }
+  .chrono-article-title {
+    font-size: 23px;
+  }
+}
+
