@@ -1,96 +1,77 @@
 <!DOCTYPE html>
+
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ollama 与本地模型下载：断点续传与存储规划 - 小樱时规动态</title>
-<meta name="description" content="用 Ollama 下载大语言模型时速度慢或中断？介绍下载方式、续传、镜像与存储位置规划，以及硬件与磁盘的基本考虑。">
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BGP与Anycast是什么：为什么同一网站不同宽带速度不一样</title>
+<meta content="从自治系统、路由策略和Anycast入口解释跨网访问差异，介绍路由跟踪的读法、证据记录和普通用户能采取的排查措施。" name="description"/>
+<link href="style.css" rel="stylesheet"/>
 </head>
 <body>
-
-  <!-- Rotating Gear Dust Backdrop -->
-  <div class="chrono-dust-wrap" aria-hidden="true">
-    <div class="c-gear cg1"></div>
-    <div class="c-gear cg2"></div>
-  </div>
-
-  <!-- Header -->
-  <header class="chrono-nav">
-    <div class="nav-layout">
-      <a href="index.html" class="chrono-logo-anchor" title="百变小樱网络加速器">
-        <svg class="chrono-logo-icon" viewBox="0 0 64 64" fill="none">
-          <circle cx="32" cy="32" r="27" stroke="#a8622c" stroke-width="2"/>
-          <circle cx="32" cy="32" r="23" stroke="#c4a985" stroke-width="1" stroke-dasharray="2 3"/>
-          <line x1="32" y1="8" x2="32" y2="12" stroke="#a8622c" stroke-width="2"/>
-          <line x1="32" y1="52" x2="32" y2="56" stroke="#a8622c" stroke-width="2"/>
-          <line x1="32" y1="32" x2="43" y2="21" stroke="#a8622c" stroke-width="2" stroke-linecap="round"/>
-          <circle cx="32" cy="32" r="3.5" fill="#a8622c"/>
-        </svg>
-        <div class="brand-details">
-          <span class="logo-main-text">百变小樱</span>
-          <span class="logo-sub-text">CHRONO ACCELERATOR</span>
-        </div>
-      </a>
-      <nav class="chrono-nav-menu">
-        <a href="index.html#advantages" class="chrono-nav-item">瞬态响应</a>
-        <a href="index.html#streaming" class="chrono-nav-item">算力与流媒体</a>
-        <a href="index.html#pricing" class="chrono-nav-item">续航方案</a>
-        <a href="index.html#faq" class="chrono-nav-item">秘仪解析</a>
-        <a href="index.html#testimonials" class="chrono-nav-item">穿梭者鉴言</a>
-        <a href="dispatch.html" class="chrono-nav-item">时规动态</a>
-      </nav>
-      <a href="https://ww012.twilightaff.com/#/?code=A56DH1Af" target="_blank" rel="nofollow" class="nav-btn-terminal">开始免费试用</a>
-    </div>
-  </header>
-
-  <main class="chrono-reader-container">
-    <article class="chrono-reader-card">
-      <nav class="chrono-path">
-        <a href="index.html">控制台</a>
-        <span>/</span>
-        <a href="dispatch.html">时规动态</a>
-        <span>/</span>
-        <span>本地模型</span>
-      </nav>
-
-      <h1 class="chrono-article-title">Ollama 与本地模型下载：断点续传与存储规划</h1>
-
-      <div class="chrono-meta-status">
- <span>撰写：小樱使用手记</span>
- <span>记录周期：2026-11-14</span>
- <span>模块：本地模型</span>
- <span>读本 · 约 5 分钟</span>
- </div>
-
-      <div class="chrono-content-body">
-<p>本地运行模型越来越流行，但模型文件动辄数 GB，下载与存储都需要提前规划。</p>
-<h2>一、先规划磁盘</h2>
-<p>确认剩余空间，并考虑把模型存放到容量更大的磁盘。多个模型会快速占满系统盘，必要时修改默认存储目录。</p>
-<h2>二、下载与续传</h2>
-<p>Ollama 的下载支持中断后继续，遇到失败直接重新执行同一命令，不必删除已下载的部分。网络不稳时，选择夜间或网络空闲时段。</p>
-<h2>三、使用代理</h2>
-<p>在终端设置代理环境变量后再运行命令，确保端口与协议类型一致。服务以后台方式运行时，需要在服务配置里设置代理。</p>
-<h2>四、硬件的基本考虑</h2>
-<ul><li>内存与显存决定能运行多大的模型。</li><li>量化后的模型体积更小、速度更快。</li><li>首次加载较慢，后续会缓存。</li></ul>
-<h2>五、管理与清理</h2>
-<p>定期查看已下载模型列表，删除不再使用的，保持磁盘整洁。</p>
- </div>
- <div class="chrono-tail-action">
-        <a href="dispatch.html" class="back-home-link">← 返回时规动态简报</a>
-        <a href="index.html" class="back-home-link">回溯百变小樱主控台 →</a>
-      </div>
-    </article>
-  </main>
-
-  <footer class="dock-footer">
-    <div class="dock-content">
-      <a href="sitemap.html" class="dock-title-link">网站地图</a>
-      <a href="about.html" class="dock-title-link">关于我们</a>
-      <a href="terms.html" class="dock-title-link">服务条款</a>
-      <a href="privacy.html" class="dock-title-link">隐私政策</a>
-    </div>
-  </footer>
-
+<!-- Rotating Gear Dust Backdrop -->
+<div aria-hidden="true" class="chrono-dust-wrap">
+<div class="c-gear cg1"></div>
+<div class="c-gear cg2"></div>
+</div>
+<!-- Header -->
+<header class="chrono-nav">
+<div class="nav-layout">
+<a class="chrono-logo-anchor" href="index.html" title="百变小樱网络加速器">
+<svg class="chrono-logo-icon" fill="none" viewbox="0 0 64 64">
+<circle cx="32" cy="32" r="27" stroke="#a8622c" stroke-width="2"></circle>
+<circle cx="32" cy="32" r="23" stroke="#c4a985" stroke-dasharray="2 3" stroke-width="1"></circle>
+<line stroke="#a8622c" stroke-width="2" x1="32" x2="32" y1="8" y2="12"></line>
+<line stroke="#a8622c" stroke-width="2" x1="32" x2="32" y1="52" y2="56"></line>
+<line stroke="#a8622c" stroke-linecap="round" stroke-width="2" x1="32" x2="43" y1="32" y2="21"></line>
+<circle cx="32" cy="32" fill="#a8622c" r="3.5"></circle>
+</svg>
+<div class="brand-details">
+<span class="logo-main-text">百变小樱</span>
+<span class="logo-sub-text">CHRONO ACCELERATOR</span>
+</div>
+</a>
+<nav class="chrono-nav-menu">
+<a class="chrono-nav-item" href="index.html#advantages">瞬态响应</a>
+<a class="chrono-nav-item" href="index.html#streaming">算力与流媒体</a>
+<a class="chrono-nav-item" href="index.html#pricing">续航方案</a>
+<a class="chrono-nav-item" href="index.html#faq">秘仪解析</a>
+<a class="chrono-nav-item" href="index.html#testimonials">穿梭者鉴言</a>
+<a class="chrono-nav-item" href="dispatch.html">时规动态</a>
+</nav>
+<a class="nav-btn-terminal" href="https://ww012.twilightaff.com/#/?code=A56DH1Af" rel="nofollow" target="_blank">开始免费试用</a>
+</div>
+</header>
+<main class="chrono-reader-container">
+<article class="chrono-reader-card">
+<nav class="chrono-path">
+<a href="index.html">控制台</a>
+<span>/</span>
+<a href="dispatch.html">时规动态</a>
+<span>/</span>
+<span>本地模型</span>
+</nav>
+<h1 class="chrono-article-title">BGP与Anycast是什么：为什么同一网站不同宽带速度不一样</h1>
+<div class="chrono-meta-status">
+<span>撰写：小樱使用手记</span>
+<span>记录周期：2026-11-14</span>
+<span>模块：本地模型</span>
+<span>读本 · 约 5 分钟</span>
+</div>
+<div class="chrono-content-body"><div data-swc-article-body="2026-11-16"><h2>地址相同，经过的路径未必相同</h2><p>同一网站在办公室打开很快，回到家却经常等待，并不必然是电脑变差了。互联网由许多独立管理的网络连接而成，运营商之间通过路由信息决定流量交给谁。这里的选择受到互联关系、策略和可用路径影响，不是简单寻找地图上最近的一条直线。理解这一点，才能解释为什么不同宽带访问同一服务会有明显差异。</p><h2>先认识自治系统这块拼图</h2><p>自治系统可以理解为由同一管理策略控制的一组网络，通常有相应编号。跨网传输时，数据可能经过多个这样的网络。BGP用于在网络之间交换可达信息并按策略选择路径，但它不是给个人电脑安装后就能立即提速的应用。看到节点介绍里写着多线或优化路由，需要进一步观察实际使用表现，不能仅凭名词判断服务质量。</p><h2>Anycast解决的是入口选择问题</h2><p>Anycast允许多个地点对外提供同一个服务地址，网络根据路由把请求送到某个入口。它常用于分布式服务，但被选中的入口不一定是地理上最近的机房，且后续业务路径也可能不同。稳定的入口有助于减少某些等待，却不能让远端数据处理、拥堵或跨地区业务限制自动消失。不要把Anycast等同于全程零延迟。</p><h2>先确认变化来自哪里</h2><p>测试同一网址时，记录网络运营商、接入方式、时间与具体任务。家中宽带异常而移动热点正常，只能说明两种路径或接入环境存在差异，尚不能直接定位是哪家中间网络出错。如果同一宽带上的所有设备都出现类似问题，接入与外部路径更值得关注；只有一个浏览器异常，则先排查缓存、扩展与应用设置。</p><h2>路由跟踪能提供哪些线索</h2><p>系统的路由跟踪工具可以显示部分中间响应以及到目标的过程。Windows的tracert与pathping分别用于跟踪路径和进一步观察相关统计，具体参数应查微软当前说明。测试时使用自己有权访问的普通目标，不需要扫描不相关地址。保存完整结果与时间，单独截取某一行很容易丢掉后续是否正常到达的重要上下文。</p><h2>中间星号不等于真实业务丢包</h2><p>路由器可能限制诊断响应，或者不愿优先处理探测请求。因此某一跳显示超时，而后面的跳数与目标仍正常时，不应直接把该节点判成故障。只有异常延续到终点并与真实应用问题一致，才更值得继续调查。回程路径也可能与去程不同，普通跟踪结果不能完整呈现一次请求来回经过的全部网络。</p><h2>用相同时段比较才有意义</h2><p>跨网拥堵可能随时段改变。把白天的家中宽带和深夜的移动网络拿来比较，会混入时间差异。尽量在相近时间重复相同任务，保持目标网址和设备一致。了解<a href="https://dajichang.mom/">BGP路由优化</a>相关概念时，可以关注实际任务的稳定性、恢复时间和失败频率，而不是只比较路径中出现了多少个城市名称。</p><h2>普通用户能够控制的范围</h2><p>你通常无法直接改变运营商间的路由政策，但可以选择不同接入网络、检查本地拥堵，或在获得授权的情况下比较不同连接方案。每次只改变一个条件，记录是否改善。切换节点后某项任务恢复，并不意味着其他全部任务也更好；工作页面、视频和远程操作可能分别走向不同服务，因此要以主要用途作判断。</p><h2>提交问题时怎样提供有效证据</h2><p>向技术支持说明目标服务、异常时间、受影响网络、正常对照网络以及可重现步骤。路由记录可以脱敏后附上，但不要公开包含家庭公网地址或内部结构的完整资料。描述“某运营商晚间访问这个页面反复超时，另一接入正常”，比宣称某条线路一定绕路或一定被限速，更便于对方进行检查。</p><h2>维护网站的人还要检查源站</h2><p>若你负责网站，可同时核对服务端响应、CDN状态、解析记录和不同区域的访问表现。入口路由正常不代表源站处理正常，缓存命中与未命中也会带来差异。调整解析或CDN前应保留原配置和回退方案，避免在没有记录的情况下不断切换供应商，最后无法确认哪个改动真正带来改善。</p><h2>将技术名词还原成购买问题</h2><p>遇到“全球智能路由”等宣传，可以询问支持哪些接入、是否有可验证的测试方式、异常怎样反馈，以及服务限制是什么。没有资料支持时，不必替商家脑补网络拓扑。对使用者来说，可解释的稳定表现和明确的处理渠道，比一串复杂术语更有用；把每次比较写成记录，后续续费或更换网络也有依据。同时注明测试日期和连接方式，后续线路发生变化时重新观察，避免把几个月前的截图当成当前服务状态。</p></div></div>
+<div class="chrono-tail-action">
+<a class="back-home-link" href="dispatch.html">← 返回时规动态简报</a>
+<a class="back-home-link" href="index.html">回溯百变小樱主控台 →</a>
+</div>
+</article>
+</main>
+<footer class="dock-footer">
+<div class="dock-content">
+<a class="dock-title-link" href="sitemap.html">网站地图</a>
+<a class="dock-title-link" href="about.html">关于我们</a>
+<a class="dock-title-link" href="terms.html">服务条款</a>
+<a class="dock-title-link" href="privacy.html">隐私政策</a>
+</div>
+</footer>
 </body>
 </html>

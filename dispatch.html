@@ -1,164 +1,154 @@
 <!DOCTYPE html>
+
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>时规动态：命令行、网络基础与智能家居指南 - 百变小樱</title>
-  <meta name="description" content="百变小樱时规动态：curl 测试代理、本地模型下载、IP 与 NAT、使用手账、端口概念与智能家居联网。">
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>时规动态：命令行、网络基础与智能家居指南 - 百变小樱</title>
+<meta content="百变小樱时规动态：curl 测试代理、本地模型下载、IP 与 NAT、使用手账、端口概念与智能家居联网。" name="description"/>
+<link href="style.css" rel="stylesheet"/>
 </head>
 <body>
-
-  <!-- Rotating Gear Dust Backdrop -->
-  <div class="chrono-dust-wrap" aria-hidden="true">
-    <div class="c-gear cg1"></div>
-    <div class="c-gear cg2"></div>
-  </div>
-
-  <!-- Header -->
-  <header class="chrono-nav">
-    <div class="nav-layout">
-      <a href="index.html" class="chrono-logo-anchor" title="百变小樱网络加速器">
-        <svg class="chrono-logo-icon" viewBox="0 0 64 64" fill="none">
-          <circle cx="32" cy="32" r="27" stroke="#a8622c" stroke-width="2"/>
-          <circle cx="32" cy="32" r="23" stroke="#c4a985" stroke-width="1" stroke-dasharray="2 3"/>
-          <line x1="32" y1="8" x2="32" y2="12" stroke="#a8622c" stroke-width="2"/>
-          <line x1="32" y1="52" x2="32" y2="56" stroke="#a8622c" stroke-width="2"/>
-          <line x1="32" y1="32" x2="43" y2="21" stroke="#a8622c" stroke-width="2" stroke-linecap="round"/>
-          <circle cx="32" cy="32" r="3.5" fill="#a8622c"/>
-        </svg>
-        <div class="brand-details">
-          <span class="logo-main-text">百变小樱</span>
-          <span class="logo-sub-text">CHRONO ACCELERATOR</span>
-        </div>
-      </a>
-      <nav class="chrono-nav-menu">
-        <a href="index.html#advantages" class="chrono-nav-item">瞬态响应</a>
-        <a href="index.html#streaming" class="chrono-nav-item">算力与流媒体</a>
-        <a href="index.html#pricing" class="chrono-nav-item">续航方案</a>
-        <a href="index.html#faq" class="chrono-nav-item">秘仪解析</a>
-        <a href="index.html#testimonials" class="chrono-nav-item">穿梭者鉴言</a>
-        <a href="dispatch.html" class="chrono-nav-item">时规动态</a>
-      </nav>
-      <a href="https://ww012.twilightaff.com/#/?code=A56DH1Af" target="_blank" rel="nofollow" class="nav-btn-terminal">开始免费试用</a>
-    </div>
-  </header>
-
-  <main class="dispatch-container">
-    <section class="dispatch-header-deck">
-      <div class="dispatch-radar-tag">CHRONO TELEMETRY · 时规动态专栏</div>
-      <h1>时规动态 · 网络基础与使用笔记</h1>
-      <p>用通俗的话讲清楚网络：命令行、地址、端口与家庭联网。</p>
-    </section>
-
-    <div class="dispatch-log-grid">
-      <!-- Article 1: Brand -->
-      <article class="dispatch-card">
-        <div class="dispatch-badge-row">
-          <span class="dispatch-tech-badge core-badge">核心架构解构</span>
-          <span class="dispatch-timestamp">2026-11-12</span>
-        </div>
-        <h2 class="dispatch-title">
-          <a href="sakura-connectivity-benchmark.html">小樱使用手账：用日记式记录找到最稳的时段</a>
-        </h2>
-        <p class="dispatch-abstract">每天一行记录，两周后就能画出自己的“稳定时刻表”。</p>
-        <div class="dispatch-card-foot">
-          <span class="dispatch-length">深度读本 · 约 6 分钟</span>
-          <a href="sakura-connectivity-benchmark.html" class="dispatch-access-link">查看工程简报 →</a>
-        </div>
-      </article>
-
-      <!-- Article 2 -->
-      <article class="dispatch-card">
-        <div class="dispatch-badge-row">
-          <span class="dispatch-tech-badge">本地模型</span>
-          <span class="dispatch-timestamp">2026-11-14</span>
-        </div>
-        <h2 class="dispatch-title">
-          <a href="global-bgp-anycast-routing.html">Ollama 与本地模型下载：断点续传与存储规划</a>
-        </h2>
-        <p class="dispatch-abstract">先规划好磁盘空间与存储位置，再用支持续传的方式下载，失败时重试而非重来。</p>
-        <div class="dispatch-card-foot">
-          <span class="dispatch-length">深度读本 · 约 5 分钟</span>
-          <a href="global-bgp-anycast-routing.html" class="dispatch-access-link">查看工程简报 →</a>
-        </div>
-      </article>
-
-      <!-- Article 3 -->
-      <article class="dispatch-card">
-        <div class="dispatch-badge-row">
-          <span class="dispatch-tech-badge">网络基础</span>
-          <span class="dispatch-timestamp">2026-11-13</span>
-        </div>
-        <h2 class="dispatch-title">
-          <a href="latency-vs-bandwidth-explained.html">IP 地址与 NAT 是什么：用生活比喻讲清楚</a>
-        </h2>
-        <p class="dispatch-abstract">把公网 IP 当作小区地址，内网 IP 当作门牌号，NAT 就是门卫登记转交快递。</p>
-        <div class="dispatch-card-foot">
-          <span class="dispatch-length">深度读本 · 约 5 分钟</span>
-          <a href="latency-vs-bandwidth-explained.html" class="dispatch-access-link">查看工程简报 →</a>
-        </div>
-      </article>
-
-      <!-- Article 4 -->
-      <article class="dispatch-card">
-        <div class="dispatch-badge-row">
-          <span class="dispatch-tech-badge">网络基础</span>
-          <span class="dispatch-timestamp">2026-11-11</span>
-        </div>
-        <h2 class="dispatch-title">
-          <a href="tcp-udp-acceleration-comparison.html">端口是什么：为什么有些程序需要放行端口</a>
-        </h2>
-        <p class="dispatch-abstract">IP 地址找到设备，端口找到设备里的具体程序，就像楼栋地址与房间号。</p>
-        <div class="dispatch-card-foot">
-          <span class="dispatch-length">深度读本 · 约 6 分钟</span>
-          <a href="tcp-udp-acceleration-comparison.html" class="dispatch-access-link">查看工程简报 →</a>
-        </div>
-      </article>
-
-      <!-- Article 5 -->
-      <article class="dispatch-card">
-        <div class="dispatch-badge-row">
-          <span class="dispatch-tech-badge">智能家居</span>
-          <span class="dispatch-timestamp">2026-11-10</span>
-        </div>
-        <h2 class="dispatch-title">
-          <a href="tls-sni-fragmentation-guide.html">摄像头与智能家居联网：稳定、安全与隐私的平衡</a>
-        </h2>
-        <p class="dispatch-abstract">给智能设备单独的网络、改默认密码、及时更新，是稳定与安全的三件基本功。</p>
-        <div class="dispatch-card-foot">
-          <span class="dispatch-length">深度读本 · 约 5 分钟</span>
-          <a href="tls-sni-fragmentation-guide.html" class="dispatch-access-link">查看工程简报 →</a>
-        </div>
-      </article>
-
-      <!-- Article 6 -->
-      <article class="dispatch-card">
-        <div class="dispatch-badge-row">
-          <span class="dispatch-tech-badge">命令行</span>
-          <span class="dispatch-timestamp">2026-11-15</span>
-        </div>
-        <h2 class="dispatch-title">
-          <a href="enterprise-remote-security-stack.html">用命令行测试代理是否生效：curl 与 ping 的基本用法</a>
-        </h2>
-        <p class="dispatch-abstract">curl 加代理参数就能快速验证出口与耗时，是排查问题时最轻量的工具。</p>
-        <div class="dispatch-card-foot">
-          <span class="dispatch-length">深度读本 · 约 5 分钟</span>
-          <a href="enterprise-remote-security-stack.html" class="dispatch-access-link">查看工程简报 →</a>
-        </div>
-      </article>
-    </div>
-  </main>
-
-  <!-- Footer -->
-  <footer class="dock-footer">
-    <div class="dock-content">
-      <a href="sitemap.html" class="dock-title-link">网站地图</a>
-      <a href="about.html" class="dock-title-link">关于我们</a>
-      <a href="terms.html" class="dock-title-link">服务条款</a>
-      <a href="privacy.html" class="dock-title-link">隐私政策</a>
-    </div>
-  </footer>
-
+<!-- Rotating Gear Dust Backdrop -->
+<div aria-hidden="true" class="chrono-dust-wrap">
+<div class="c-gear cg1"></div>
+<div class="c-gear cg2"></div>
+</div>
+<!-- Header -->
+<header class="chrono-nav">
+<div class="nav-layout">
+<a class="chrono-logo-anchor" href="index.html" title="百变小樱网络加速器">
+<svg class="chrono-logo-icon" fill="none" viewbox="0 0 64 64">
+<circle cx="32" cy="32" r="27" stroke="#a8622c" stroke-width="2"></circle>
+<circle cx="32" cy="32" r="23" stroke="#c4a985" stroke-dasharray="2 3" stroke-width="1"></circle>
+<line stroke="#a8622c" stroke-width="2" x1="32" x2="32" y1="8" y2="12"></line>
+<line stroke="#a8622c" stroke-width="2" x1="32" x2="32" y1="52" y2="56"></line>
+<line stroke="#a8622c" stroke-linecap="round" stroke-width="2" x1="32" x2="43" y1="32" y2="21"></line>
+<circle cx="32" cy="32" fill="#a8622c" r="3.5"></circle>
+</svg>
+<div class="brand-details">
+<span class="logo-main-text">百变小樱</span>
+<span class="logo-sub-text">CHRONO ACCELERATOR</span>
+</div>
+</a>
+<nav class="chrono-nav-menu">
+<a class="chrono-nav-item" href="index.html#advantages">瞬态响应</a>
+<a class="chrono-nav-item" href="index.html#streaming">算力与流媒体</a>
+<a class="chrono-nav-item" href="index.html#pricing">续航方案</a>
+<a class="chrono-nav-item" href="index.html#faq">秘仪解析</a>
+<a class="chrono-nav-item" href="index.html#testimonials">穿梭者鉴言</a>
+<a class="chrono-nav-item" href="dispatch.html">时规动态</a>
+</nav>
+<a class="nav-btn-terminal" href="https://ww012.twilightaff.com/#/?code=A56DH1Af" rel="nofollow" target="_blank">开始免费试用</a>
+</div>
+</header>
+<main class="dispatch-container">
+<section class="dispatch-header-deck">
+<div class="dispatch-radar-tag">CHRONO TELEMETRY · 时规动态专栏</div>
+<h1>时规动态 · 网络基础与使用笔记</h1>
+<p>用通俗的话讲清楚网络：命令行、地址、端口与家庭联网。</p>
+</section>
+<div class="dispatch-log-grid">
+<!-- Article 1: Brand -->
+<article class="dispatch-card">
+<div class="dispatch-badge-row">
+<span class="dispatch-tech-badge core-badge">核心架构解构</span>
+<span class="dispatch-timestamp">2026-11-12</span>
+</div>
+<h2 class="dispatch-title">
+<a href="sakura-connectivity-benchmark.html">百变小樱机场适合晚间学习吗：视频、字幕与笔记的完整体验流程</a>
+</h2>
+<p class="dispatch-abstract">每天一行记录，两周后就能画出自己的“稳定时刻表”。</p>
+<div class="dispatch-card-foot">
+<span class="dispatch-length">深度读本 · 约 6 分钟</span>
+<a class="dispatch-access-link" href="sakura-connectivity-benchmark.html">查看工程简报 →</a>
+</div>
+</article>
+<!-- Article 2 -->
+<article class="dispatch-card">
+<div class="dispatch-badge-row">
+<span class="dispatch-tech-badge">本地模型</span>
+<span class="dispatch-timestamp">2026-11-14</span>
+</div>
+<h2 class="dispatch-title">
+<a href="global-bgp-anycast-routing.html">BGP与Anycast是什么：为什么同一网站不同宽带速度不一样</a>
+</h2>
+<p class="dispatch-abstract">先规划好磁盘空间与存储位置，再用支持续传的方式下载，失败时重试而非重来。</p>
+<div class="dispatch-card-foot">
+<span class="dispatch-length">深度读本 · 约 5 分钟</span>
+<a class="dispatch-access-link" href="global-bgp-anycast-routing.html">查看工程简报 →</a>
+</div>
+</article>
+<!-- Article 3 -->
+<article class="dispatch-card">
+<div class="dispatch-badge-row">
+<span class="dispatch-tech-badge">网络基础</span>
+<span class="dispatch-timestamp">2026-11-13</span>
+</div>
+<h2 class="dispatch-title">
+<a href="latency-vs-bandwidth-explained.html">千兆宽带为什么网页还是慢：延迟、吞吐量和排队等待怎么分辨</a>
+</h2>
+<p class="dispatch-abstract">把公网 IP 当作小区地址，内网 IP 当作门牌号，NAT 就是门卫登记转交快递。</p>
+<div class="dispatch-card-foot">
+<span class="dispatch-length">深度读本 · 约 5 分钟</span>
+<a class="dispatch-access-link" href="latency-vs-bandwidth-explained.html">查看工程简报 →</a>
+</div>
+</article>
+<!-- Article 4 -->
+<article class="dispatch-card">
+<div class="dispatch-badge-row">
+<span class="dispatch-tech-badge">网络基础</span>
+<span class="dispatch-timestamp">2026-11-11</span>
+</div>
+<h2 class="dispatch-title">
+<a href="tcp-udp-acceleration-comparison.html">TCP和UDP有什么区别：语音、游戏与文件传输该怎样判断</a>
+</h2>
+<p class="dispatch-abstract">IP 地址找到设备，端口找到设备里的具体程序，就像楼栋地址与房间号。</p>
+<div class="dispatch-card-foot">
+<span class="dispatch-length">深度读本 · 约 6 分钟</span>
+<a class="dispatch-access-link" href="tcp-udp-acceleration-comparison.html">查看工程简报 →</a>
+</div>
+</article>
+<!-- Article 5 -->
+<article class="dispatch-card">
+<div class="dispatch-badge-row">
+<span class="dispatch-tech-badge">智能家居</span>
+<span class="dispatch-timestamp">2026-11-10</span>
+</div>
+<h2 class="dispatch-title">
+<a href="tls-sni-fragmentation-guide.html">TLS握手失败怎么办：证书、系统时间、SNI与代理设置排查</a>
+</h2>
+<p class="dispatch-abstract">给智能设备单独的网络、改默认密码、及时更新，是稳定与安全的三件基本功。</p>
+<div class="dispatch-card-foot">
+<span class="dispatch-length">深度读本 · 约 5 分钟</span>
+<a class="dispatch-access-link" href="tls-sni-fragmentation-guide.html">查看工程简报 →</a>
+</div>
+</article>
+<!-- Article 6 -->
+<article class="dispatch-card">
+<div class="dispatch-badge-row">
+<span class="dispatch-tech-badge">命令行</span>
+<span class="dispatch-timestamp">2026-11-15</span>
+</div>
+<h2 class="dispatch-title">
+<a href="enterprise-remote-security-stack.html">小团队远程办公如何安全接入：账号、设备与应用分层配置</a>
+</h2>
+<p class="dispatch-abstract">curl 加代理参数就能快速验证出口与耗时，是排查问题时最轻量的工具。</p>
+<div class="dispatch-card-foot">
+<span class="dispatch-length">深度读本 · 约 5 分钟</span>
+<a class="dispatch-access-link" href="enterprise-remote-security-stack.html">查看工程简报 →</a>
+</div>
+</article>
+</div>
+</main>
+<!-- Footer -->
+<footer class="dock-footer">
+<div class="dock-content">
+<a class="dock-title-link" href="sitemap.html">网站地图</a>
+<a class="dock-title-link" href="about.html">关于我们</a>
+<a class="dock-title-link" href="terms.html">服务条款</a>
+<a class="dock-title-link" href="privacy.html">隐私政策</a>
+</div>
+</footer>
 </body>
 </html>
